@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "439663223508",
+    "project_id": "tastypoll",
+    "storage_bucket": "tastypoll.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439663223508:android:5cef3cf752b1ecc9fe1141",
+        "android_client_info": {
+          "package_name": "com.fernando.tastypoll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439663223508-dl503saj8fqrevkpaufhqnnkuu2lu9h3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaPlk4B3tFJQve2mIpBv2qPjD37K1NHFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439663223508-dl503saj8fqrevkpaufhqnnkuu2lu9h3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
