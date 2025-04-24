@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TastyPoll</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registrarse</string>
+    <string name="login_in">Iniciar Sesión</string>
+    <string name="recover_password">Recuperar contraseña</string>
+    <string name="welcome">"Bienvenido"</string>
+    <string name="invalid_password">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="password_mismatch">"Las contraseñas no coinciden"</string>">
+    <string name="login_failed">"Incio de sesión fallido"</string>
+
+    <string name="name">Nombre</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="back">Atrás</string>
+</resources>
