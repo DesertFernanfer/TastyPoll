@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             ///
-            intent = new Intent(MainActivity.this, Login.class);
+            intent = new Intent(MainActivity.this, Homepage.class);
 
         }
         startActivity(intent);

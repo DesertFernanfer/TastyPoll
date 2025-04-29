@@ -10,7 +10,8 @@
     <string name="invalid_password">La contraseña debe tener al menos 6 caracteres</string>
     <string name="password_mismatch">"Las contraseñas no coinciden"</string>">
     <string name="login_failed">"Incio de sesión fallido"</string>
-
+    <string name="open_nav">Abrir cajón de navegación</string>
+    <string name="close_nav">Cerrar cajón de navegación</string>
     <string name="name">Nombre</string>
     <string name="confirm_password">Confirmar contraseña</string>
     <string name="back">Atrás</string>
