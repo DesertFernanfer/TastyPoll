@@ -2,4 +2,22 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
  <dimen name="fragment_horizontal_margin">16dp</dimen>
  <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="field_width">206dp</dimen>
+    <dimen name="field_height">55dp</dimen>
+
+
+
+    <dimen name="input_padding_horizontal">16dp</dimen>
+    <dimen name="input_corner_radius">10dp</dimen>
+
+
+    <dimen name="input_text_size">16sp</dimen>
+    <dimen name="title_size">30sp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_text_size">18sp</dimen>
+
+
+    <dimen name="searchview_width">300dp</dimen>
 </resources>

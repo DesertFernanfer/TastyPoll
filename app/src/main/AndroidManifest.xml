@@ -15,7 +15,7 @@
         <activity
             android:name=".model.Homepage"
             android:exported="false"
-            android:label="@string/title_activity_homepage"
+            android:label="@string/homepage"
             android:theme="@style/Theme.TastyPoll" />
         <activity
             android:name=".model.MainActivity"

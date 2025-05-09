@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="@dimen/searchview_width"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginTop="72dp"
+        android:hint="Comida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoDieta"
+        android:layout_width="@dimen/searchview_width"
+        android:layout_height="@dimen/field_height"
+
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <Spinner
+        android:id="@+id/spinnerCategoriaPlato"
+        android:layout_width="@dimen/searchview_width"
+        android:layout_height="@dimen/field_height"
+
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTipoDieta" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="362dp"
+        android:layout_height="429dp"
+        android:layout_marginTop="48dp"
+        android:minHeight="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoriaPlato" />
+
+    <Button
+        android:id="@+id/botonCrear"
+        style="@style/Widget.Tastypoll.Button.Default"
+        android:text="Crear"
+        tools:layout_editor_absoluteX="276dp"
+        tools:layout_editor_absoluteY="805dp" />
+
+    <Button
+        android:id="@+id/botonAtras"
+        style="@style/Widget.Tastypoll.Button.Default"
+        android:text="Atras"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="805dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

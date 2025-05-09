@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.fernando.tastypoll.R;
+import com.fernando.tastypoll.fragments.CrearEncuesta;
 import com.fernando.tastypoll.fragments.Encuestas;
 import com.fernando.tastypoll.fragments.HomePageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -70,10 +71,11 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
             return true;
         });
 
+        //Boton crear encuesta
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // showBottomDialog();
+                replaceFragment(new CrearEncuesta());
             }
         });
 
@@ -82,6 +84,7 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 

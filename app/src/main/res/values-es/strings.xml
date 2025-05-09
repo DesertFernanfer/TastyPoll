@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TastyPoll</string>
+    <!-- Strings related to login -->
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
     <string name="register">Registrarse</string>
     <string name="login_in">Iniciar Sesión</string>
     <string name="recover_password">Recuperar contraseña</string>
-    <string name="welcome">"Bienvenido"</string>
     <string name="invalid_password">La contraseña debe tener al menos 6 caracteres</string>
-    <string name="password_mismatch">"Las contraseñas no coinciden"</string>">
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="password_mismatch">"Las contraseñas no coinciden"</string>
     <string name="login_failed">"Incio de sesión fallido"</string>
+    <string name="name">Nombre</string>
+
+    <!-- Strings related to register -->
+
+
+
+
+
+    <!-- String actiones-->
     <string name="open_nav">Abrir cajón de navegación</string>
     <string name="close_nav">Cerrar cajón de navegación</string>
-    <string name="name">Nombre</string>
-    <string name="confirm_password">Confirmar contraseña</string>
     <string name="back">Atrás</string>
+    <!-- String Homepage -->
+    <string name="welcome">"Bienvenido"</string>
+
+
+    <!-- Strings NavigationView -->
+    <string name="homepage">Página Principal</string>
+    <string name="settings">Ajustes</string>
+    <string name="about_us">Sobre nosotros</string>
+    <string name="logout">Cerrar sesión</string>
+
+
+    <string name="public_mode">Público</string>
+    <string name="private_mode">Privado</string>
+
+    <string name="food">Comida</string>
+    <string name="loading">Cargando…</string>
+
+    <string name="description_food_image">Comida</string>
+
+    <string name="life_time_survey">Tiempo de vida en minutos</string>
+    <string name="create">Crear</string>
+
+
+
+
 </resources>

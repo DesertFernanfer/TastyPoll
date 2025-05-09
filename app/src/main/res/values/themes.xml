@@ -2,8 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.TastyPoll" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/Lavender</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="android:windowBackground">@color/vanilla</item>
+
+
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/blackGray</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -14,10 +17,83 @@
         <!-- Customize your theme here. -->
         <item name="colorSurface">@color/white</item>
 
+        <!-- Componentes -->
+    </style>
+    <style name="Widget.Tastypoll.Button.Default" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:backgroundTint">@color/orange</item>
+        <item name="android:layout_marginEnd">25dp</item>
+
+    </style>
+    <style name="Widget.Tastypoll.Button.Atras" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">4dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:backgroundTint">@color/orange</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:text">@string/back</item>
+
+    </style>
+    <style name="Widget.Tastypoll.TextInput.Default" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/field_height</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:ems">10</item>
+
+
+
+
     </style>
 
+    <style name="Widget.Tastypoll.TextView.Information" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/field_height</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+
+    </style>
+    <style name="Widget.Tastypoll.TextView.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/field_height</item>
+        <item name="android:textSize">@dimen/title_size</item>
+
+    </style>
+    <style name="Widget.Tastypoll.RadioButton.Default" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/textColor</item>
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">25dp</item>
+
+        <item name="android:buttonTint">@color/orange</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+
+    </style>
+
+
+    <style name="Widget.Tastypoll.Checkbox.Default" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:buttonTint">@color/orange</item>
+    </style>
+
+    <!--
     <style name="AnimacionDialogo">
         <item name="android:windowEnterAnimation">@anim/slide_in</item>
-        <item name="android:windowExitAnimation">@anim/slide_out</item>"
-    </style>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>-->
+
 </resources>

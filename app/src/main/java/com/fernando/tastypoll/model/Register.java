@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.fernando.tastypoll.R;
+import com.fernando.tastypoll.clases.FireBaseManager;
 import com.fernando.tastypoll.clases.Singleton;
 import Enums.TipoDieta;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,14 +49,14 @@ public class Register extends AppCompatActivity {
 
     }
     private void referenciarYConfigurarSpinners(){
-        Spinner spinner = findViewById(R.id.spinnerDieta);
+        spinnerDieta = findViewById(R.id.spinnerDieta);
 
         TipoDieta[] opciones = TipoDieta.values();
         
         ArrayAdapter<TipoDieta> adapter = new ArrayAdapter<>(
                  this, android.R.layout.simple_spinner_item, TipoDieta.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinnerDieta.setAdapter(adapter);
 
 
 
@@ -79,15 +80,18 @@ public class Register extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this,  task -> {
                     if(task.isSuccessful()){
                         Toast.makeText(Register.this, "Usuario creado", Toast.LENGTH_SHORT).show();
-                       // singleton.getFireBaseManager().guardarUsuario();
+                        singleton.getFireBaseManager().guardarUsuario(nombre,email,password,TipoDieta.OMNIVORA,mAuth.getUid());
                     } else {
                         Toast.makeText(Register.this, "Error al crear el usuario", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                singleton.getFireBaseManager().guardarUsuario(nombre,email,password, (TipoDieta) spinnerDieta.getSelectedItem(), mAuth.getUid());
             }
         });
 
     }
+
     private boolean validarCampos(String email, String password, String passwordConfirm, String nombre)  {
         boolean esCorrecto = true;
         if(!password.equals(passwordConfirm)){

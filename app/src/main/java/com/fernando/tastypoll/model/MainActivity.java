@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         Intent intent;
+
         if(user == null){
             intent = new Intent(MainActivity.this, Login.class);
 
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(MainActivity.this, Homepage.class);
 
         }
+        /*
+        intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
-        finish();
+        finish();*/
     }
 }

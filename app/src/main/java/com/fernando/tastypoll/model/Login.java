@@ -71,6 +71,9 @@ private void iniciarSesion(String email, String password){
         public void onComplete(@NonNull Task<AuthResult> task) {
             if(task.isSuccessful()){
                 Toast.makeText(Login.this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Login.this, Homepage.class);
+                startActivity(intent);
+                finish();
             } else {
                 Toast.makeText(Login.this, "Email/conntraseña no válidos", Toast.LENGTH_SHORT).show();
             }

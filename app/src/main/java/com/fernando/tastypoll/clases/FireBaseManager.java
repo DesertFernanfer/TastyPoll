@@ -1,17 +1,17 @@
 package com.fernando.tastypoll.clases;
 
-import android.widget.Toast;
+
+import android.util.Log;
 
 import com.fernando.tastypoll.interfaces.IUsuarioLlamada;
-import com.fernando.tastypoll.model.Register;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import Enums.TipoDieta;
@@ -26,13 +26,20 @@ public class FireBaseManager  {
 
     public void guardarUsuario(String nombre, String email, String password, TipoDieta tipoDieta, String uid) {
         Map<String,Object> usuario = new HashMap<>();
-        usuario.put("nombre",nombre);
 
         usuario.put("nombre",nombre);
         usuario.put("email",email);
         usuario.put("tipoDieta",tipoDieta.toString());
         usuario.put("encuestas",new ArrayList<Encuesta>());
-        firestore.collection("usuarios").document(uid).set(usuario);
+        firestore.collection("usuarios").document(uid).set(usuario).addOnSuccessListener(
+                aVoid -> {
+                    Log.d("Firebase", "Usuario guardado correctamente");
+
+                }
+        ).addOnSuccessListener( onFailure -> {
+            Log.d("Firebase", "Fallo al guardar al usuario");
+
+        });
 
     }
     public void cargarUsuario(String uid, IUsuarioLlamada llamada){
@@ -43,22 +50,33 @@ public class FireBaseManager  {
                     if(documentSnapshot.exists()) {
                         Map<String, Object> data = documentSnapshot.getData();
 
-                        Usuario usuario = new Usuario(data.get("nombre").toString(),data.get("email").toString(),
-                                TipoDieta.valueOf(data.get("tipoDieta").toString()),
 
-                                (ArrayList<Encuesta>) data.get("encuestas"));
+
+                        String nombre = data.containsKey("nombre") ? data.get("nombre").toString() : "";
+                        String email = data.containsKey("email") ? data.get("email").toString() : "";
+                        TipoDieta tipoDieta = data.containsKey("tipoDieta")
+                                ? TipoDieta.valueOf(data.get("tipoDieta").toString())
+                                : TipoDieta.OMNIVORA; // Valor por defecto
+
+                        List<Encuesta> encuestas = data.containsKey("encuestas")
+                                ? (List<Encuesta>) data.get("encuestas")
+                                : Collections.emptyList();
+
+                        Usuario usuario = new Usuario(nombre, email, tipoDieta, encuestas);
+
                         llamada.onUsuarioCargado(usuario);
                     } else {
-                        llamada.onUsuarioCargado(null);
+                        llamada.onUsuarioNoExiste();
                     }
 
                 }).addOnFailureListener(e -> {
-                    System.out.println("Error al cargar el usuario");
+                    llamada.onError("Ha ha ocurrido un error al cargar el usuario");
                 });
 
 
-
     }
+
+
 
 
 }
