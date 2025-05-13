@@ -9,7 +9,7 @@
         android:id="@+id/search"
         style="@style/Widget.Tastypoll.TextInput.Default"
         android:layout_marginTop="32dp"
-        android:hint="escribe algo"
+        android:hint="@string/write_something"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
         android:id="@+id/botonBuscar"
         style="@style/Widget.Tastypoll.Button.Default"
         android:layout_marginTop="36dp"
-        android:text="Buscar"
+        android:text="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toEndOf="@+id/search"
@@ -27,8 +27,8 @@
 
     <Spinner
         android:id="@+id/spinnerTipoDieta"
-        android:layout_width="@dimen/searchview_width"
-        android:layout_height="@dimen/field_height"
+        android:layout_width="@dimen/width_spinner"
+        android:layout_height="@dimen/height_spinner"
 
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,8 +37,8 @@
 
     <Spinner
         android:id="@+id/spinnerCategoriaPlato"
-        android:layout_width="@dimen/searchview_width"
-        android:layout_height="@dimen/field_height"
+        android:layout_width="@dimen/width_spinner"
+        android:layout_height="@dimen/height_spinner"
 
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         android:id="@+id/botonSeleccionar"
         style="@style/Widget.Tastypoll.Button.Default"
         android:layout_marginTop="28dp"
-        android:text="Seleccionar"
+        android:text="@string/select"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
         android:id="@+id/botonAtras"
         style="@style/Widget.Tastypoll.Button.Default"
         android:layout_marginTop="28dp"
-        android:text="Atras"
+        android:text="@string/back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"

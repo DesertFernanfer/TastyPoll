@@ -10,7 +10,7 @@
     <string name="invalid_password">La contraseña debe tener al menos 6 caracteres</string>
     <string name="confirm_password">Confirmar contraseña</string>
     <string name="password_mismatch">"Las contraseñas no coinciden"</string>
-    <string name="login_failed">"Incio de sesión fallido"</string>
+    <string name="login_failed">Incio de sesión fallido</string>
     <string name="name">Nombre</string>
 
     <!-- Strings related to register -->
@@ -24,7 +24,7 @@
     <string name="close_nav">Cerrar cajón de navegación</string>
     <string name="back">Atrás</string>
     <!-- String Homepage -->
-    <string name="welcome">"Bienvenido"</string>
+    <string name="welcome">Bienvenido</string>
 
 
     <!-- Strings NavigationView -->
@@ -43,8 +43,25 @@
     <string name="description_food_image">Comida</string>
 
     <string name="life_time_survey">Tiempo de vida en minutos</string>
+    <string name="spanish">Español</string>
+    <string name="english">Inglés</string>
+    <string name="search">Buscar</string>
+    <string name="write_something">Escribe algo</string>
+    <string name="select">Seleccionar</string>
+    <string name="delete">Eliminar</string>
+    <string name="add">Añadir</string>
     <string name="create">Crear</string>
+    <string name="save">Guardar</string>
+    <string name="help">Help</string>
 
+    <!-- Strings About us -->
+    <string name="who_are_we">¿Quiénes somos?</string>
+    <string name="who_are_we_text">Somos un grupo pequeño emprendedores. Nuestras misión es dar una solución a un problema en esta etapa de indecisión .Mientras generamos riqueza.</string>
+    <string name="what_is_tastypoll">¿Que es TastyPoll?</string>
+    <string name="what_is_tastypoll_text">Tastypoll es una aplicación que te permite crear encuestas, para decidir que tipo de comida comer. De manera sencilla.</string>
+
+    <string name="contact">Contact</string>
+    <string name="contact_text">Email: fajj37@educa.madrid.org</string>
 
 
 

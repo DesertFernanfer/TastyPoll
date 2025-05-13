@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -71,7 +70,7 @@ private void iniciarSesion(String email, String password){
         public void onComplete(@NonNull Task<AuthResult> task) {
             if(task.isSuccessful()){
                 Toast.makeText(Login.this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Login.this, Homepage.class);
+                Intent intent = new Intent(Login.this, App.class);
                 startActivity(intent);
                 finish();
             } else {

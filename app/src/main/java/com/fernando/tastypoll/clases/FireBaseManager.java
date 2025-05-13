@@ -24,6 +24,7 @@ import Enums.TipoDieta;
 public class FireBaseManager  {
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
+
     public FireBaseManager() {
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
@@ -47,8 +48,9 @@ public class FireBaseManager  {
         });
 
     }
-    public void cargarUsuario(String uid, IUsuarioLlamada llamada){
+    public void cargarUsuario(IUsuarioLlamada llamada){
 
+        String uid = mAuth.getUid();
         firestore.collection("usuarios")
                 .document(uid)
                 .get().addOnSuccessListener( documentSnapshot -> {
@@ -70,16 +72,20 @@ public class FireBaseManager  {
                         Usuario usuario = new Usuario(nombre, email, tipoDieta, encuestas);
 
                         llamada.onUsuarioCargado(usuario);
+                        Log.d("FireBaseManager", "Usuario cargado correctamente");
                     } else {
                         llamada.onUsuarioNoExiste();
+                        Log.d("FireBaseManager", "Usuario no existe");
                     }
 
                 }).addOnFailureListener(e -> {
                     llamada.onError("Ha ha ocurrido un error al cargar el usuario");
+                    Log.e("FireBaseManager", "Error al cargar el usuario", e);
                 });
 
 
     }
+
     public void getListaAlimentos(OnAlimentosCargados call){
         ArrayList<Alimento> listaAlimentos = new ArrayList<>();
 
@@ -162,4 +168,31 @@ public class FireBaseManager  {
 
         firestore.collection("usuarios").document(uid).update("encuestas", FieldValue.arrayUnion(idEncuesta));
     }
+    public void actualizarNombreUsuario(String nombre){
+        String uid = mAuth.getUid();
+        firestore.collection("usuarios")
+                .document(uid)
+                .update("nombre",nombre)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("Firebase", "Nombre actualizado correctamente");
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firebase", "Error al actualizar el nombre", e);
+                });
+
+    }
+    public void actualizarTipoDieta(TipoDieta tipoDieta){
+        String uid = mAuth.getUid();
+        firestore.collection("usuarios")
+                .document(uid)
+                .update("tipoDieta",tipoDieta.toString())
+                .addOnSuccessListener(aVoid ->{
+                    Log.d("Firebase", "Tipo de dieta actualizado correctamente " + tipoDieta.toString());
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firebase", "Error al actualizar el tipo de dieta", e);
+                        }
+                );
+    }
+
 }

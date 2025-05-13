@@ -139,7 +139,7 @@
                 style="@style/Widget.Tastypoll.Button.Default"
 
                 android:layout_marginTop="48dp"
-                android:text="Añadir"
+                android:text="@string/add"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.135"
                 app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:text="Eliminar"
+                android:text="@string/delete"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

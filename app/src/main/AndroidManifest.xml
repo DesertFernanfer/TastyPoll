@@ -13,9 +13,9 @@
         android:theme="@style/Theme.TastyPoll"
         tools:targetApi="31">
         <activity
-            android:name=".model.Homepage"
+            android:name=".model.App"
             android:exported="false"
-            android:label="@string/homepage"
+            android:label="Tastypoll"
             android:theme="@style/Theme.TastyPoll" />
         <activity
             android:name=".model.MainActivity"

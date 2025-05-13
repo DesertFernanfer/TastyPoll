@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titulo"
+        style="@style/Widget.Tastypoll.TextView.Title"
+        android:layout_marginTop="100dp"
+        android:text="@string/settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nombreUsuario"
+        style="@style/Widget.Tastypoll.TextInput.Default"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoDieta"
+        android:layout_width="@dimen/width_spinner"
+        android:layout_height="@dimen/height_spinner"
+
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTipoDieta">
+
+        <RadioButton
+            android:id="@+id/radioButtonEN"
+            style="@style/Widget.Tastypoll.RadioButton.Default"
+            android:text="@string/english" />
+
+        <RadioButton
+            android:id="@+id/radioButtonES"
+            style="@style/Widget.Tastypoll.RadioButton.Default"
+            android:text="@string/spanish" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/botonAtras"
+        style="@style/Widget.Tastypoll.Button.Atras"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toStartOf="@+id/titulo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonGuardar"
+        style="@style/Widget.Tastypoll.Button.Default"
+        android:layout_marginTop="68dp"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

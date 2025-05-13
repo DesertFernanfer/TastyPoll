@@ -23,7 +23,7 @@ import com.fernando.tastypoll.clases.Alimento;
 import com.fernando.tastypoll.interfaces.OnAlimentosSeleccionados;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import Enums.CategoriaPlato;
 import Enums.TipoDieta;
