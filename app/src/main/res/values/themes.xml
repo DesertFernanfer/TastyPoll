@@ -57,7 +57,7 @@
     <style name="Widget.Tastypoll.TextView.Information" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/textColor</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/field_height</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/default_text_size</item>
 
     </style>

@@ -1,10 +1,10 @@
 package Enums;
 
 public enum CategoriaPlato {
+    TODOS,
     ENTRADA,
-    PRINCIPAL,
+    PRIMERO,
     SEGUNDO,
-    POSTRE,
-    Ninguno
+    POSTRE
 
 }

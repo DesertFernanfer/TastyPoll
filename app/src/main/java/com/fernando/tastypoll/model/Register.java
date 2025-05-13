@@ -86,7 +86,6 @@ public class Register extends AppCompatActivity {
                     }
                 });
 
-                singleton.getFireBaseManager().guardarUsuario(nombre,email,password, (TipoDieta) spinnerDieta.getSelectedItem(), mAuth.getUid());
             }
         });
 

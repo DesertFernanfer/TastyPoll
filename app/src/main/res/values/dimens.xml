@@ -20,4 +20,6 @@
 
 
     <dimen name="searchview_width">300dp</dimen>
+
+    <dimen name="width_recycler">300dp</dimen>"
 </resources>

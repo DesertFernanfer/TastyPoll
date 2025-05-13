@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(MainActivity.this, Homepage.class);
 
         }
-        /*
-        intent = new Intent(MainActivity.this, Login.class);
+
         startActivity(intent);
-        finish();*/
+        finish();
     }
 }

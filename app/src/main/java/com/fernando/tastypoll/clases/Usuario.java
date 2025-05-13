@@ -9,9 +9,9 @@ public class Usuario {
 
     private  String nombre, email;
     private TipoDieta tipoDieta;
-    private List<Encuesta> encuestas;
+    private ArrayList<Encuesta> encuestas;
 
-    public Usuario(String nombre, String email, TipoDieta tipoDieta, List<Encuesta> encuestas) {
+    public Usuario(String nombre, String email, TipoDieta tipoDieta, ArrayList<Encuesta> encuestas) {
         this.nombre = nombre;
         this.email = email;
         this.tipoDieta = tipoDieta;

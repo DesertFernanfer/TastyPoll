@@ -3,6 +3,8 @@ package com.fernando.tastypoll.clases;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+
 public class Singleton {
     private static Singleton instancia = new Singleton();
 
@@ -17,10 +19,13 @@ public class Singleton {
 
         return instancia;
     }
+
+
     public FirebaseAuth getmAuth(){
         return mAuth;
     }
     public FireBaseManager getFireBaseManager(){
         return fireBaseManager;
     }
+
 }

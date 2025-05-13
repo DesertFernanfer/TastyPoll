@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:fillViewport="true" >
 
     <!-- TODO: Update blank fragment layout -->
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <Button
             android:id="@+id/botonAtras"
@@ -22,13 +20,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--
         <TextView
             android:id="@+id/textView3"
             style="@style/Widget.Tastypoll.TextView.Information"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="128dp"
             android:text="Modo de acceso enceusta"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.308"
+            app:layout_constraintHorizontal_bias="0.263"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,10 +36,10 @@
             style="@style/Widget.Tastypoll.TextView.Information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="8dp"
             android:text="Tiempo de vida"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.228"
+            app:layout_constraintHorizontal_bias="0.195"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupTipoAcceso" />
 
@@ -49,10 +48,10 @@
             style="@style/Widget.Tastypoll.TextView.Information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="148dp"
+            android:layout_marginTop="108dp"
             android:text="Modo seguro"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.228"
+            app:layout_constraintHorizontal_bias="0.192"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupTipoAcceso" />
 
@@ -60,7 +59,7 @@
             android:id="@+id/checkBoxSeguro"
             style="@style/Widget.Tastypoll.Checkbox.Default"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/inputTiempoVida" />
 
@@ -68,7 +67,7 @@
             android:id="@+id/radioGroupTipoAcceso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.339"
@@ -91,48 +90,94 @@
         <EditText
             android:id="@+id/inputTiempoVida"
             style="@style/Widget.Tastypoll.TextInput.Default"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="4dp"
             android:autofillHints=""
             android:hint="@string/life_time_survey"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.306"
+            app:layout_constraintHorizontal_bias="0.361"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
 
         <Spinner
             android:id="@+id/spinnerDieta"
             android:layout_width="248dp"
             android:layout_height="46dp"
 
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.441"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
 
         <Spinner
             android:id="@+id/spinnerCategoriaPlato"
             android:layout_width="248dp"
             android:layout_height="46dp"
 
-            />
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.441"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerDieta" />
+            -->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="287dp"
+            android:layout_height="420dp"
+            android:layout_marginTop="188dp"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+            <Button
+                android:id="@+id/botonAnhadirAlimento"
+                style="@style/Widget.Tastypoll.Button.Default"
+
+                android:layout_marginTop="48dp"
+                android:text="Añadir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.135"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+            <Button
+                android:id="@+id/botonEliminar"
+                style="@style/Widget.Tastypoll.Button.Default"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="Eliminar"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+
+
+
+
 
         <Button
             android:id="@+id/botonCrear"
             style="@style/Widget.Tastypoll.Button.Default"
 
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="90dp"
             android:text="@string/create"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintHorizontal_bias="0.553"
             app:layout_constraintStart_toStartOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
 
-</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

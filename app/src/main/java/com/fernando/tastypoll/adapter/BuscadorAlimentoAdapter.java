@@ -16,15 +16,16 @@ import com.bumptech.glide.Glide;
 import com.fernando.tastypoll.R;
 import com.fernando.tastypoll.clases.Alimento;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class BuscadorAlimentoAdapter extends RecyclerView.Adapter<BuscadorAlimentoAdapter.ViewHolder> {
 
-    private List<Alimento> alimentos;
+    private ArrayList<Alimento> alimentos;
+    private ArrayList<Alimento> alimentosSeleccionados = new ArrayList<>();
     private Context context;
 
 
-    public BuscadorAlimentoAdapter(List<Alimento> alimentos, Context context) {
+    public BuscadorAlimentoAdapter(ArrayList<Alimento> alimentos, Context context) {
         this.alimentos = alimentos;
         this.context = context;
     }
@@ -48,18 +49,40 @@ public class BuscadorAlimentoAdapter extends RecyclerView.Adapter<BuscadorAlimen
                 .into(holder.imagenView);
 
         // Cambiar color de fondo si está seleccionado
-        int colorFondo = alimento.esSeleccionado()
-                ? ContextCompat.getColor(context, R.color.item_selected)
-                : Color.TRANSPARENT;
-        holder.itemView.setBackgroundColor(colorFondo);
+        gestionarSeleccion(holder,alimento,position);
 
-        // Click para seleccionar/deseleccionar
+    }
+    private void gestionarSeleccion(BuscadorAlimentoAdapter.ViewHolder holder, Alimento alimento, int position) {
+
+        holder.itemView.setBackgroundColor(
+                alimentosSeleccionados.contains(alimento)
+                        ? ContextCompat.getColor(context, R.color.item_selected)
+                        : Color.TRANSPARENT
+        );
+
+
         holder.itemView.setOnClickListener(v -> {
-            alimento.setSeleccionado(!alimento.esSeleccionado());
-            notifyItemChanged(position); // Actualiza solo este item
+            boolean estabaSeleccionado = alimentosSeleccionados.contains(alimento);
+
+            if (estabaSeleccionado) {
+                alimentosSeleccionados.remove(alimento);
+            } else {
+                alimentosSeleccionados.add(alimento);
+
+            }
+
+            // Actualizar solo este item
+            notifyItemChanged(position);
         });
     }
+    public void actualizarLista(ArrayList<Alimento> nuevaLista) {
+        alimentos = nuevaLista;
+        notifyDataSetChanged();
+    }
 
+    public ArrayList<Alimento> getAlimentosSeleccionados() {
+        return alimentosSeleccionados;
+    }
     @Override
     public int getItemCount() {
         return alimentos.size();
@@ -70,6 +93,7 @@ public class BuscadorAlimentoAdapter extends RecyclerView.Adapter<BuscadorAlimen
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imagenView;
         TextView textNombre;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

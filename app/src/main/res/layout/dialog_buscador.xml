@@ -5,15 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="@dimen/searchview_width"
-        android:layout_height="@dimen/field_height"
-        android:layout_marginTop="72dp"
-        android:hint="Comida"
+    <EditText
+        android:id="@+id/search"
+        style="@style/Widget.Tastypoll.TextInput.Default"
+        android:layout_marginTop="32dp"
+        android:hint="escribe algo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonBuscar"
+        style="@style/Widget.Tastypoll.Button.Default"
+        android:layout_marginTop="36dp"
+        android:text="Buscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toEndOf="@+id/search"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
@@ -24,7 +33,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/search" />
 
     <Spinner
         android:id="@+id/spinnerCategoriaPlato"
@@ -39,27 +48,35 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="362dp"
+        android:layout_width="@dimen/width_recycler"
         android:layout_height="429dp"
         android:layout_marginTop="48dp"
         android:minHeight="200dp"
+
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerCategoriaPlato" />
 
     <Button
-        android:id="@+id/botonCrear"
+        android:id="@+id/botonSeleccionar"
         style="@style/Widget.Tastypoll.Button.Default"
-        android:text="Crear"
-        tools:layout_editor_absoluteX="276dp"
-        tools:layout_editor_absoluteY="805dp" />
+        android:layout_marginTop="28dp"
+        android:text="Seleccionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <Button
         android:id="@+id/botonAtras"
         style="@style/Widget.Tastypoll.Button.Default"
+        android:layout_marginTop="28dp"
         android:text="Atras"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="805dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

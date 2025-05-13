@@ -4,16 +4,21 @@ package com.fernando.tastypoll.clases;
 import android.util.Log;
 
 import com.fernando.tastypoll.interfaces.IUsuarioLlamada;
+import com.fernando.tastypoll.interfaces.OnAlimentosCargados;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
+import Enums.CategoriaPlato;
 import Enums.TipoDieta;
 
 public class FireBaseManager  {
@@ -30,7 +35,7 @@ public class FireBaseManager  {
         usuario.put("nombre",nombre);
         usuario.put("email",email);
         usuario.put("tipoDieta",tipoDieta.toString());
-        usuario.put("encuestas",new ArrayList<Encuesta>());
+        usuario.put("encuestas",new ArrayList<String>());
         firestore.collection("usuarios").document(uid).set(usuario).addOnSuccessListener(
                 aVoid -> {
                     Log.d("Firebase", "Usuario guardado correctamente");
@@ -58,9 +63,9 @@ public class FireBaseManager  {
                                 ? TipoDieta.valueOf(data.get("tipoDieta").toString())
                                 : TipoDieta.OMNIVORA; // Valor por defecto
 
-                        List<Encuesta> encuestas = data.containsKey("encuestas")
-                                ? (List<Encuesta>) data.get("encuestas")
-                                : Collections.emptyList();
+                        ArrayList<Encuesta> encuestas = data.containsKey("encuestas")
+                                ? (ArrayList<Encuesta>) data.get("encuestas")
+                                : new ArrayList<>();
 
                         Usuario usuario = new Usuario(nombre, email, tipoDieta, encuestas);
 
@@ -75,8 +80,86 @@ public class FireBaseManager  {
 
 
     }
+    public void getListaAlimentos(OnAlimentosCargados call){
+        ArrayList<Alimento> listaAlimentos = new ArrayList<>();
+
+        firestore.collection("alimentos").get().addOnSuccessListener(querySnapshot -> {
+
+            for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
+                String id = doc.getId();
+                String nombre = doc.getString("nombre");
+                String url = doc.getString("urlImagen");
+
+                CategoriaPlato categoria = extraerCategoria(doc.getString("tipo"));
+                TipoDieta tipoDieta = extraerDieta(doc.getString("dieta"));
+
+                Alimento a = new Alimento(id, nombre, url, categoria, tipoDieta);
+                listaAlimentos.add(a);
+            }
+        }).addOnFailureListener(e -> {
+            Log.e("FireBaseManager", "Error al cargar los alimentos");
+                }
+        );
+        call.onAlimentosCargados(listaAlimentos);
+    }
+    private TipoDieta extraerDieta(String dieta){
+        TipoDieta tipoDieta = TipoDieta.OMNIVORA;
+
+        if (dieta != null && !dieta.isEmpty()) {
+            try {
+                tipoDieta = TipoDieta.valueOf(dieta.toUpperCase(Locale.ROOT).trim());
+            } catch (IllegalArgumentException e) {
+                Log.w("FireBaseManager", "Tipo de dieta no válido: " + dieta);
+            }
+        }
+        return tipoDieta;
+    }
+    private CategoriaPlato extraerCategoria(String categoria){
+        CategoriaPlato categoriaPlato = CategoriaPlato.TODOS;
+
+        if (categoria != null && !categoria.isEmpty()) {
+            try {
+                categoriaPlato = CategoriaPlato.valueOf(categoria.toUpperCase(Locale.ROOT).trim());
+            } catch (IllegalArgumentException e) {
+                Log.w("FireBaseManager", "Tipo de dieta no válido: " + categoria);
+            }
+        }
+        return categoriaPlato;
+    }
+    public void crearEncuesta(Encuesta encuesta){
+        String uid = mAuth.getUid();
+
+        Map<String,Object> documento = new HashMap<>();
+
+        documento.put("nombre",encuesta.getNombre());
+        documento.put("creadorUid",uid);
+        documento.put("descripcion",encuesta.getDescripcion());
+        documento.put("publica",encuesta.esEsAnonima());
+        documento.put("tiempoVida",encuesta.getTiempoVida());
+        documento.put("tipoDieta",encuesta.getTipoDieta().toString());
+        documento.put("modoSeguro",encuesta.isModoSeguro());
+        documento.put("alimentosPredeterminados",encuesta.esAlimentosPredeterminados());
 
 
+        // Usuario UID - ID comida
+        documento.put("votos",new HashMap<String,String>());
 
+        firestore.collection("encuestas")
+                .add(documento)
+                .addOnSuccessListener(documentReference -> {
 
+                    String id = documentReference.getId();
+                    Log.d("Firestore", "Encuesta creada con ID: " + id);
+
+                    agregarEncuestaSUsuario(id,uid);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firestore", "Error al crear encuesta", e);
+                });
+
+    }
+    private void agregarEncuestaSUsuario(String idEncuesta, String uid){
+
+        firestore.collection("usuarios").document(uid).update("encuestas", FieldValue.arrayUnion(idEncuesta));
+    }
 }
