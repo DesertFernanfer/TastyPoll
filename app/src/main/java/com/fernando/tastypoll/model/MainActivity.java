@@ -18,16 +18,21 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         Intent intent;
 
+
         if(user == null){
-            intent = new Intent(MainActivity.this, Login.class);
+            intent = new Intent(this, Login.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
 
         } else {
             ///
             intent = new Intent(MainActivity.this, App.class);
 
-        }
 
+        }
         startActivity(intent);
         finish();
+
+
     }
 }

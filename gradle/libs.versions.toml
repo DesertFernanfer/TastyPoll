@@ -25,8 +25,12 @@ glide = "4.16.0"
 firebaseBom = "33.13.0"
 firebaseAuthVersion = "23.2.0"
 firebaseFirestoreVersion = "25.1.4"
+zxingAndroidEmbedded = "4.3.0"
+firebase-functions = "20.4.0"
+mockito = "4.11.0"
 
 [libraries]
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -60,7 +64,10 @@ play-services-base = { group = "com.google.android.gms", name = "play-services-b
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 google-firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuthVersion" }
 google-firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestoreVersion" }
-
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
+firebase-functions = { group = "com.google.firebase", name = "firebase-functions", version.ref = "firebase-functions" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }

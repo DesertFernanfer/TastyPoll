@@ -6,11 +6,8 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -24,35 +21,29 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.fernando.tastypoll.R;
 import com.fernando.tastypoll.clases.Singleton;
-import com.fernando.tastypoll.clases.Usuario;
 import com.fernando.tastypoll.fragments.AboutUs;
 import com.fernando.tastypoll.fragments.Ajustes;
 import com.fernando.tastypoll.fragments.CrearEncuesta;
-import com.fernando.tastypoll.fragments.Encuestas;
+import com.fernando.tastypoll.fragments.BaulEncuestas;
 import com.fernando.tastypoll.fragments.HomePageFragment;
-import com.fernando.tastypoll.interfaces.IUsuarioLlamada;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
 import java.util.Locale;
-
-import Enums.TipoDieta;
 
 public class App extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
     private FloatingActionButton fab;
     private DrawerLayout drawerLayout;
-    private Usuario usuario;
     private Toolbar toolbar;
     private Singleton singleton;
 
-    private Fragment actualFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_app);
         recuperarIdioma();
         iniciarlizarElementos();
 
@@ -84,7 +75,7 @@ public class App extends AppCompatActivity implements NavigationView.OnNavigatio
             if (itemId == R.id.home) {
                 replaceFragment(new HomePageFragment());
             } else if (itemId == R.id.encuestas) {
-                replaceFragment(new Encuestas());
+                replaceFragment(new BaulEncuestas());
             }
 
 
@@ -100,9 +91,7 @@ public class App extends AppCompatActivity implements NavigationView.OnNavigatio
         });
 
     }
-    private void inicializarNavigationView(){
 
-    }
     private void iniciarlizarElementos(){
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         fab = findViewById(R.id.fab);
@@ -134,7 +123,7 @@ public class App extends AppCompatActivity implements NavigationView.OnNavigatio
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        actualFragment = fragment;
+
     }
 
     @Override
@@ -150,8 +139,10 @@ public class App extends AppCompatActivity implements NavigationView.OnNavigatio
             replaceFragment(new AboutUs());
 
         } else if(id == R.id.nav_help){
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://elchapuzasinformatico.com")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(singleton.getUrlManual())));
 
+        } else if(id == R.id.nav_logout){
+            cerrarSesion();
         }
 
 
@@ -167,33 +158,21 @@ public class App extends AppCompatActivity implements NavigationView.OnNavigatio
             super.onBackPressed();
         }
     }
+    private void cerrarSesion() {
+        FirebaseAuth.getInstance().signOut();
 
-    /*
+        singleton.limpiarDatos();
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("App", "onResume");
-        Singleton.getInstancia().getFireBaseManager().cargarUsuario(new IUsuarioLlamada() {
-            @Override
-            public void onUsuarioCargado(Usuario user) {
-                usuario = user;
-                if(actualFragment instanceof Ajustes){
-                    ((Ajustes) actualFragment).actualizarUsuario(usuario);
-                }
-            }
+        SharedPreferences prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove("usuario_logueado");
+        editor.apply();
 
-            @Override
-            public void onUsuarioNoExiste() {
-                Log.e("App_Usuario_error","Usuario no cargadado");
-            }
-
-            @Override
-            public void onError(String mensaje) {
-                Log.e("App_Usuario_error","Usuario no cargadado "+mensaje);
-            }
-        });
-    }*/
+        Intent intent = new Intent(this, Login.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
 
 
 

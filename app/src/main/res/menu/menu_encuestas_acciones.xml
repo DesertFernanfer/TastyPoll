@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_info"
+        android:title="@string/info_survey" />
+    <item
+        android:id="@+id/action_share"
+        android:title="@string/share_survey" />
+    <item
+        android:id="@+id/action_finish"
+        android:title="@string/finish_survey" />
+    <item
+        android:id="@+id/action_delete"
+        android:title="@string/delete_survey" />
+</menu>

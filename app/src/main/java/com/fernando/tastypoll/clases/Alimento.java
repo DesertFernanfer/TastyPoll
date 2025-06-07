@@ -31,6 +31,9 @@ public class Alimento  implements Parcelable {
         categoria = CategoriaPlato.values()[in.readInt()];
         tipoDieta = TipoDieta.values()[in.readInt()];
     }
+    public String getId() {
+        return id;
+    }
 
     public String getNombre() {
         return nombre;

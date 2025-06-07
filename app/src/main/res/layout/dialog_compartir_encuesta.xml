@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/botonAtras"
+        style="@style/Widget.Tastypoll.Button.Atras"/>
+    <TextView
+        style="@style/Widget.Tastypoll.TextView.Title"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/code_qr" />
+
+    <ImageView
+        android:id="@+id/qrImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/copyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copy_url"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"> <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" /> <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" /> <Button
+        android:id="@+id/botonAtras"
+        style="@style/Widget.Tastypoll.Button.Atras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/labelTitle"
+            style="@style/Widget.Tastypoll.TextView.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/survey_details"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintTop_toBottomOf="@+id/botonAtras" />
+
+        <TextView
+            android:id="@+id/label1"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+
+            android:layout_marginTop="24dp"
+            android:text="@string/name"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
+
+        <TextView
+            android:id="@+id/nameEncuesta"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label1"
+            app:layout_constraintTop_toTopOf="@+id/label1" />
+
+        <TextView
+            android:id="@+id/label2"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/description_survey"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/nameEncuesta" />
+
+        <TextView
+            android:id="@+id/descriptionSurvey"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/label2" />
+
+        <TextView
+            android:id="@+id/label3"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/email"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionSurvey" />
+
+        <TextView
+            android:id="@+id/tieneEmailEncuesta"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label3"
+            app:layout_constraintTop_toTopOf="@+id/label3" />
+
+        <TextView
+            android:id="@+id/label4"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/default_food"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/label3" />
+
+        <TextView
+            android:id="@+id/tieneAlimentosPredeterminadosEncuesta"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label4"
+            app:layout_constraintTop_toTopOf="@+id/label4" />
+
+        <TextView
+            android:id="@+id/label5"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/active"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/label4" />
+
+        <TextView
+            android:id="@+id/estaActivaEncuesta"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label5"
+            app:layout_constraintTop_toTopOf="@+id/label5" />
+
+        <TextView
+            android:id="@+id/label6"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/create_date"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/label5" />
+
+        <TextView
+            android:id="@+id/creacionEncuesta"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label6"
+            app:layout_constraintTop_toTopOf="@+id/label6" />
+
+        <TextView
+            android:id="@+id/label7"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/caducity_date"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/label6" />
+
+        <TextView
+            android:id="@+id/caducidadEncuesta"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label7"
+            app:layout_constraintTop_toTopOf="@+id/label7" />
+
+        <TextView
+            android:id="@+id/label8"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/votos"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/label7" />
+
+        <TextView
+            android:id="@+id/votos"
+            style="@style/Widget.Tastypoll.TextView.Information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/loading"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/label8"
+            app:layout_constraintTop_toTopOf="@+id/label8" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -20,7 +20,8 @@
     <color name="vanilla">#FFF7D6</color>
 
 
-    <color name="titleColor">#FFFFFFFF</color>
+    <color name="titleColor">#FF000000</color>
 
-    <color name="textColor">#FFFFFFFF</color>
+    <color name="textColor">#FF000000</color>
+    <color name="hint_color">#4E4D4D</color>
 </resources>

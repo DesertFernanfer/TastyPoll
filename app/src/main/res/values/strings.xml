@@ -47,7 +47,7 @@
     <string name="create">Create</string>
     <string name="add">Add</string>
     <string name="save">Save</string>
-    <string name="help">Ayuda</string>
+    <string name="help">Help</string>
 
 
     <!-- Strings About us -->
@@ -57,8 +57,63 @@
     <string name="what_is_tastypoll">What is TastyPoll?</string>
     <string name="what_is_tastypoll_text">Tastypoll is an app that lets you create polls to help you decide what type of food to eat. Its easy.</string>
 
+    <!-- Crear Encuesta -->
     <string name="contact">Contact</string>
     <string name="contact_text">Email: fajj37@educa.madrid.org</string>
+    <string name="name_survey">Name of the survey</string>
+    <string name="description_survey">Description of the survey</string>
+    <string name="request_email">Request email to send survey?</string>
+    <string name="default_food">Default food?</string>
+    <string name="write_name">Write name</string>
+    <string name="write_description">Write description</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="filter_tipo_dieta">Type of diet</string>
+
+    <string name="create_survey_sucessfully">Survey created </string>
+    <!-- Errores -->
+    <string name="error_negative_number">The number must be positive</string>
+    <string name="error_empty_name">Survey name cannot be empty</string>
+    <string name="error_empty_description">Survey description cannot be empty</string>
+    <string name="error_no_radio_selected">Please select a send option</string>
+    <string name="error_no_food_items">You must add at least one food item</string>
+    <string name="error_invalid_lifetime">Lifetime must be a valid number</string>
+
+    <!-- Baul encuestas -->
+    <string name="survey_history">History of surveys</string>
+    <string name="share_survey">Share survey</string>
+    <string name="finish_survey">Finish survey</string>
+    <string name="info_survey">Information</string>
+
+    <string name="delete_survey_advice">Are you sure to delete this survey?</string>
+    <string name="finish_survey_advice">Are you sure to finish this survey?</string>
+
+    <string name="delete_survey_success">Survey deleted</string>
+    <string name="finish_survey_success">Survey finished</string>
+    <string name="delete_survey_failed">Error survey no delted</string>
+    <string name="finish_survey_failed">Error survey no finished</string>
+
+
+    <string name="active">Active</string>
+    <string name="votos">Votes</string>
+    <string name="create_date">Creation Date</string>
+    <string name="caducity_date">Caducity Date</string>
+    <string name="survey_details">Survey Details</string>
+    <string name="error_date">Error in date</string>
+
+
+    <string name="action_cannot_undo">This action cannot be undone.</string>
+    <string name="delete_survey">Delete survey</string>
+
+    <string name="code_qr">Code QR</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="url_copied">URL copied to clipboard</string>
+
+    <string name="introduce_email">Write your email</string>
+    <string name="send">Send</string>
+
+
 
 
 

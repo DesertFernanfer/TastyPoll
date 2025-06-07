@@ -63,6 +63,58 @@
     <string name="contact">Contact</string>
     <string name="contact_text">Email: fajj37@educa.madrid.org</string>
 
+    <!-- Crear Encuesta -->
+    <string name="name_survey">Nombre de la encuesta</string>
+    <string name="description_survey">Descripción de la encuesta</string>
+    <string name="request_email">¿Pedir email para enviar encuesta?</string>
+    <string name="default_food">¿Comida predeterminada?</string>
+    <string name="write_name">Introduce un nombre</string>
+    <string name="write_description">Introduce una descripción</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="filter_tipo_dieta">Tipo de dieta</string>
+    <string name="create_survey_sucessfully">Encuesta creada </string>
+
+    <!-- Errores -->
+    <string name="error_negative_number">El número debe ser positivo</string>
+    <string name="error_empty_name">El nombre de la encuesta no puede estar vacío</string>
+    <string name="error_empty_description">La descripción de la encuesta no puede estar vacía</string>
+    <string name="error_no_radio_selected">Selecciona una opción de envío</string>
+    <string name="error_no_food_items">Debes agregar al menos un alimento</string>
+    <string name="error_invalid_lifetime">El tiempo de vida debe ser un número válido</string>
+
+
+    <!-- survey -->
+    <string name="survey_history">Historial de encuestas</string>
+    <string name="share_survey">Compartir encuesta</string>
+    <string name="finish_survey">Terminar encuesta</string>
+    <string name="info_survey">Información</string>
+    <string name="delete_survey_advice">¿Estas seguro de eliminar esta encuesta?</string>
+    <string name="finish_survey_advice">¿Estas seguro de terminar esta encuesta?</string>
+
+
+    <string name="delete_survey_success">Encuesta eliminada</string>
+    <string name="finish_survey_success">Encuesta terminada</string>
+    <string name="delete_survey_failed">Error encuesta no eliminada</string>
+    <string name="finish_survey_failed">Error encuesa no terminada</string>
+    <string name="active">Activa</string>
+    <string name="votos">Votos</string>
+    <string name="create_date">Fecha de creación</string>
+    <string name="caducity_date">Fecha de caducidad</string>
+    <string name="survey_details">Encuesta Detalles</string>
+    <string name="error_date">Error en fecha</string>
+
+    <string name="action_cannot_undo">Esta acción no se puede deshacer.</string>
+    <string name="delete_survey">Eliminar encuesta</string>
+    <string name="code_qr">Código qr QR</string>
+    <string name="copy_url">Copiar URL</string>
+    <string name="url_copied">URL copiada al portapapeles</string>
+
+    <string name="introduce_email">Introduce tu email</string>
+    <string name="send">Enviar</string>
+
+
+
 
 
 </resources>

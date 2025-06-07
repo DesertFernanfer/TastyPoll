@@ -3,13 +3,11 @@ package com.fernando.tastypoll.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,12 +20,9 @@ import androidx.fragment.app.Fragment;
 import com.fernando.tastypoll.R;
 import com.fernando.tastypoll.clases.Singleton;
 import com.fernando.tastypoll.clases.Usuario;
-import com.fernando.tastypoll.interfaces.IUsuarioLlamada;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
-import Enums.CategoriaPlato;
 import Enums.TipoDieta;
 
 public class Ajustes extends Fragment {
@@ -67,14 +62,7 @@ public class Ajustes extends Fragment {
         incializarRadioGroup(view);
         return view;
     }
-    public void actualizarUsuario(Usuario user){
-        Log.d("Ajustes", "actualizarUsuario");
-        usuario = user;
 
-            escribirDatosUsuario();
-
-
-    }
     private void escribirDatosUsuario(){
         spinnerTipoDieta.setSelection(usuario.getTipoDieta().ordinal());
         nombre.setText(usuario.getNombre());
@@ -135,7 +123,6 @@ public class Ajustes extends Fragment {
     private void inicializarSpinnerTipoDieta(View view){
         spinnerTipoDieta = view.findViewById(R.id.spinnerTipoDieta);
 
-        TipoDieta[] opciones = TipoDieta.values();
 
         ArrayAdapter<TipoDieta> adapter = new ArrayAdapter<>(
                 getContext(), android.R.layout.simple_spinner_item, TipoDieta.values());
@@ -145,24 +132,7 @@ public class Ajustes extends Fragment {
         Log.d("dieta",usuario.getTipoDieta().toString());
 
     }
-    private void cargarUsuario(){
-        singleton.getFireBaseManager().cargarUsuario(new IUsuarioLlamada() {
-            @Override
-            public void onUsuarioCargado(Usuario user) {
-                usuario = user;
 
-            }
-            @Override
-            public void onUsuarioNoExiste() {
-                usuario = new Usuario("No existe", "No existe", TipoDieta.OMNIVORA, new ArrayList<>());
-            }
-            @Override
-            public void onError(String mensajeError) {
-                Log.e("App_Usuario_error","Usuario no cargadado "+mensajeError);
-            }
-        });
-
-    }
     private void incializarRadioGroup(View view) {
         // 1. Inicialización de vistas con verificación de nulos
         radioGroup = view.findViewById(R.id.radioGroup);
@@ -209,24 +179,7 @@ public class Ajustes extends Fragment {
         requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         requireActivity().finish();
     }
-    private void cambiarIdioma(String idioma) {
-        Locale nuevoLocale;
 
-        if (idioma.equals("es")) {
-            nuevoLocale = new Locale("es", "ES");  // Español
-        } else {
-            nuevoLocale = new Locale("en", "US");  // Inglés
-        }
-
-        Locale.setDefault(nuevoLocale);
-
-        Configuration config = new Configuration();
-        config.setLocale(nuevoLocale);
-
-        requireActivity().getBaseContext()
-                .getResources()
-                .updateConfiguration(config, requireActivity().getBaseContext().getResources().getDisplayMetrics());
-    }
 
 }
 

@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.fernando.tastypoll.R;
+import com.fernando.tastypoll.clases.Singleton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,8 +25,10 @@ public class HomePageFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
+    private TextView _etiquetaTitulo;
     private String mParam1;
     private String mParam2;
+    private Singleton singleton;
 
     public HomePageFragment() {
         // Required empty public constructor
@@ -55,12 +59,18 @@ public class HomePageFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        singleton = Singleton.getInstancia();
+        singleton.actualizarUsuario();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_homepage, container, false);
+        View view =  inflater.inflate(R.layout.fragment_homepage, container, false);
+
+        _etiquetaTitulo = view.findViewById(R.id.titulo);
+
+        return view;
     }
 }

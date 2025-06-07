@@ -66,6 +66,11 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.google.firebase.auth)
     implementation(libs.google.firebase.firestore)
+    implementation(libs.firebase.functions)  // ← Esta línea
+
+
+    implementation(libs.zxing.android.embedded)
+    implementation(libs.firebase.functions)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -81,5 +86,9 @@ dependencies {
     implementation(libs.glide)
     annotationProcessor(libs.glideCompiler)
 
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+
+    testImplementation(libs.junit)
 
 }

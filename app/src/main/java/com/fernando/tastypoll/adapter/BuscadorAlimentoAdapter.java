@@ -48,7 +48,6 @@ public class BuscadorAlimentoAdapter extends RecyclerView.Adapter<BuscadorAlimen
                 .placeholder(R.drawable.placeholder_imagen)
                 .into(holder.imagenView);
 
-        // Cambiar color de fondo si está seleccionado
         gestionarSeleccion(holder,alimento,position);
 
     }
@@ -71,7 +70,6 @@ public class BuscadorAlimentoAdapter extends RecyclerView.Adapter<BuscadorAlimen
 
             }
 
-            // Actualizar solo este item
             notifyItemChanged(position);
         });
     }
@@ -89,7 +87,6 @@ public class BuscadorAlimentoAdapter extends RecyclerView.Adapter<BuscadorAlimen
 
     }
 
-    // ViewHolder para el buscador
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imagenView;
         TextView textNombre;

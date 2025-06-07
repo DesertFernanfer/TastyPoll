@@ -11,6 +11,7 @@
 
     <color name="lightGreen">#69E16F</color>
     <color name="orange">#F09F25</color>
+    <color name="off_orange">#B27A1B</color>"
     <color name="lightRed">#FF8A80</color>
     <color name="blue">#266DD3</color>
     <color name="blackGray">#344055</color>
@@ -26,4 +27,6 @@
     <color name="textColor">#FF000000</color>
 
     <color name="item_selected">#f36f53</color>
+    <color name="hint_color">#4E4D4D</color>
+
 </resources>

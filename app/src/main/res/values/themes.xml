@@ -25,7 +25,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/button_height</item>
         <item name="android:textSize">@dimen/button_text_size</item>
-        <item name="android:backgroundTint">@color/orange</item>
+        <item name="backgroundTint">@color/button_tint_selector</item>
+
         <item name="android:layout_marginEnd">25dp</item>
 
     </style>
@@ -48,12 +49,19 @@
         <item name="android:textSize">@dimen/default_text_size</item>
         <item name="android:layout_marginEnd">25dp</item>
         <item name="android:ems">10</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+
 
 
 
 
     </style>
 
+    <style name="Widget.Tastypoll.TextView.InformationLabel" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
     <style name="Widget.Tastypoll.TextView.Information" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/textColor</item>
         <item name="android:layout_width">wrap_content</item>

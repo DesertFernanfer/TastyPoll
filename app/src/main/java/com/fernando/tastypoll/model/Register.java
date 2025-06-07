@@ -73,7 +73,6 @@ public class Register extends AppCompatActivity {
             String password = entryPassword.getText().toString();
             String passwordConfirm = entryPasswordConfirm.getText().toString();
             String nombre = entryName.getText().toString();
-            Toast.makeText(Register.this, "Boton register pulsado", Toast.LENGTH_SHORT).show();
 
 
             if(validarCampos(email,password,passwordConfirm, nombre)){

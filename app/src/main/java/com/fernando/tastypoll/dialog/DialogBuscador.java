@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SearchView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -33,7 +32,6 @@ public class DialogBuscador extends DialogFragment {
 
     private EditText buscador;
     private ArrayList<Alimento> listaAlimentos;
-    private SearchView searchView;
     private OnAlimentosSeleccionados listener;
 
     private RecyclerView recyclerView;
@@ -123,25 +121,6 @@ public class DialogBuscador extends DialogFragment {
 
 
     }
-    private TipoDieta obtenerTipoDietaSeleccionado() {
-        TipoDieta dieta = TipoDieta.OMNIVORA;
-        try{
-            dieta = TipoDieta.valueOf(spinnerTipoDieta.getSelectedItem().toString());
-        }catch (IllegalArgumentException e){
-            Log.e("Error tipo dieta", "Error al obtener el tipo de dieta seleccionado");
-        }
-        return dieta;
-
-    }
-    private CategoriaPlato obtenerCategoriaSeleccionada(){
-        CategoriaPlato categoria = CategoriaPlato.TODOS;
-        try{
-            categoria = CategoriaPlato.valueOf(spinnerCategoriaPlato.getSelectedItem().toString());
-        }catch (IllegalArgumentException e){
-            Log.e("Error categoria", "Error al obtener la categoria seleccionada");
-            }
-        return categoria;
-    }
     private void inicializarSpinnerTipoDieta(View view){
         spinnerTipoDieta = view.findViewById(R.id.spinnerTipoDieta);
 
@@ -169,29 +148,64 @@ public class DialogBuscador extends DialogFragment {
     private void inicializarSpinnerCaregoriaPlato(View view){
         spinnerCategoriaPlato = view.findViewById(R.id.spinnerCategoriaPlato);
 
-        CategoriaPlato[] opciones = CategoriaPlato.values();
 
         ArrayAdapter<CategoriaPlato> adapter = new ArrayAdapter<>(
                 getContext(), android.R.layout.simple_spinner_item, CategoriaPlato.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategoriaPlato.setAdapter(adapter);
     }
-
     private void filtrarListaPorNombre(String query, TipoDieta dieta, CategoriaPlato categoria){
         ArrayList<Alimento> listaFiltrada = new ArrayList<>();
-        for(Alimento alimento : listaAlimentos){
-            if(!query.isEmpty() &&   alimento.getNombre().toLowerCase().contains(query.toLowerCase())){
-                listaFiltrada.add(alimento);
-            }else if(( dieta == TipoDieta.OMNIVORA || alimento.getTipoDieta().equals(dieta)) && (categoria == CategoriaPlato.TODOS || alimento.getCategoria().equals(categoria))){
-                listaFiltrada.add(alimento);
 
+        if (listaAlimentos == null || listaAlimentos.isEmpty()) {
+            ((BuscadorAlimentoAdapter) recyclerView.getAdapter()).actualizarLista(listaFiltrada);
+            return;
+        }
+
+        for(Alimento alimento : listaAlimentos){
+            // Validar que el alimento no sea null
+            if (alimento == null) continue;
+
+            boolean cumpleQuery = query.isEmpty() ||
+                    (alimento.getNombre() != null &&
+                            alimento.getNombre().toLowerCase().contains(query.toLowerCase()));
+
+            boolean cumpleDieta = (dieta == TipoDieta.OMNIVORA ||
+                    (alimento.getTipoDieta() != null && alimento.getTipoDieta().equals(dieta)));
+
+            boolean cumpleCategoria = (categoria == CategoriaPlato.TODOS ||
+                    (alimento.getCategoria() != null && alimento.getCategoria().equals(categoria)));
+
+            if (cumpleQuery && cumpleDieta && cumpleCategoria) {
+                listaFiltrada.add(alimento);
             }
         }
-        if(listaFiltrada.size() != listaAlimentos.size()){
-            //ACtualizar Recycler view
-            ((BuscadorAlimentoAdapter) recyclerView.getAdapter()).actualizarLista(listaFiltrada);
 
-        }
+        ((BuscadorAlimentoAdapter) recyclerView.getAdapter()).actualizarLista(listaFiltrada);
     }
+
+    private TipoDieta obtenerTipoDietaSeleccionado() {
+        try {
+            if (spinnerTipoDieta != null && spinnerTipoDieta.getSelectedItem() != null) {
+                return TipoDieta.valueOf(spinnerTipoDieta.getSelectedItem().toString());
+            }
+        } catch (IllegalArgumentException e) {
+            Log.e("DialogBuscador", "Error al obtener tipo de dieta: " + e.getMessage());
+        }
+        return TipoDieta.OMNIVORA;
+    }
+
+    // Similar para categoría:
+    private CategoriaPlato obtenerCategoriaSeleccionada(){
+        try {
+            if (spinnerCategoriaPlato != null && spinnerCategoriaPlato.getSelectedItem() != null) {
+                return CategoriaPlato.valueOf(spinnerCategoriaPlato.getSelectedItem().toString());
+            }
+        } catch (IllegalArgumentException e) {
+            Log.e("DialogBuscador", "Error al obtener categoría: " + e.getMessage());
+        }
+        return CategoriaPlato.TODOS;
+    }
+
 
 }

@@ -24,7 +24,6 @@ public class CrearEncuestaAdapter extends RecyclerView.Adapter<CrearEncuestaAdap
     private final ArrayList<Alimento> alimentos;
     private final ArrayList<Alimento> alimentosSeleccionados;
     private final Context context;
-    //Cuando se crea un nuevo ViewHolder, infla el layaout
     public CrearEncuestaAdapter(ArrayList<Alimento> alimentos, Context context){
 
         this.alimentos = Objects.requireNonNullElseGet(alimentos, ArrayList::new);
@@ -38,45 +37,27 @@ public class CrearEncuestaAdapter extends RecyclerView.Adapter<CrearEncuestaAdap
                 .inflate(R.layout.item_alimento, parent, false);
         return new ViewHolder(view);
     }
-    //Asigna los datos al viewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CrearEncuestaAdapter.ViewHolder holder, int position) {
 
-        /*
-        Alimento alimento = alimentos.get(position);
-
-        // Mostrar datos
-        holder.textNombre.setText(alimento.getNombre());
-        if (context != null) {
-            Glide.with(context)
-                    .load(alimento.getUrlImagen())
-                    .placeholder(R.drawable.placeholder_imagen)
-                    .into(holder.imagenView);
-        }
-        gestionarSeleccion(holder,alimento,position);
-         */
 
         Alimento alimento = alimentos.get(position);
 
-        // Resetear el estado visual ANTES de asignar datos
         holder.rootView.setBackgroundColor(Color.TRANSPARENT);
 
-        // Asignar datos normales
         holder.textNombre.setText(alimento.getNombre());
         Glide.with(context).load(alimento.getUrlImagen())
                 .load(alimento.getUrlImagen())
                 .placeholder(R.drawable.placeholder_imagen)
                 .into(holder.imagenView);
 
-        // Forzar estado de selección
         if (alimentosSeleccionados.contains(alimento)) {
             holder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.item_selected));
         } else {
             holder.rootView.setBackgroundColor(Color.TRANSPARENT);
         }
 
-        // Click listener mejorado
         holder.rootView.setOnClickListener(v -> {
             toggleSeleccion(alimento, position);
         });
@@ -91,19 +72,7 @@ public class CrearEncuestaAdapter extends RecyclerView.Adapter<CrearEncuestaAdap
         notifyItemChanged(position);
     }
     public void borrarAlimentos(){
-        /*
-        int posicion;
-        for(Alimento alimento : alimentosSeleccionados){
-            posicion = alimentosSeleccionados.indexOf(alimento);
-            if(posicion != -1 && posicion < alimentos.size()){
-                alimentos.remove(posicion);
-                notifyItemRemoved(posicion);
-            } else if(alimentos.size() == 1){
-                alimentos.remove(0);
-                notifyItemRemoved(posicion);
-            }
 
-        }*/
         for (int i = alimentosSeleccionados.size() - 1; i >= 0; i--) {
             Alimento alimento = alimentosSeleccionados.get(i);
             int posicionEnListaPrincipal = alimentos.indexOf(alimento);
@@ -118,30 +87,7 @@ public class CrearEncuestaAdapter extends RecyclerView.Adapter<CrearEncuestaAdap
 
     private void gestionarSeleccion(ViewHolder holder, Alimento alimento, int position) {
 
-        /*
-        holder.itemView.setBackgroundColor(
-                alimentosSeleccionados.contains(alimento)
-                        ? ContextCompat.getColor(context, R.color.item_selected)
-                        : Color.TRANSPARENT
-        );
 
-
-        holder.itemView.setOnClickListener(v -> {
-            boolean estabaSeleccionado = alimentosSeleccionados.contains(alimento);
-
-            if (estabaSeleccionado) {
-                alimentosSeleccionados.remove(alimento);
-            } else {
-                alimentosSeleccionados.add(alimento);
-
-            }
-
-            // Actualizar solo este item
-            notifyItemChanged(position);
-        });
-
-         */
-        // Actualiza el color basado en la selección ACTUAL
         holder.itemView.setBackgroundColor(
                 alimentosSeleccionados.contains(alimento)
                         ? ContextCompat.getColor(context, R.color.item_selected)
@@ -165,18 +111,17 @@ public class CrearEncuestaAdapter extends RecyclerView.Adapter<CrearEncuestaAdap
         return alimentos.size();
     }
 
-    //Almacena las vistas de un item
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imagenView;
         TextView textNombre;
-        View rootView;  // Añade esta referencia
+        View rootView;
 
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            rootView = itemView;  // Guarda la vista principal
+            rootView = itemView;
             imagenView = itemView.findViewById(R.id.imagenAlimento);
             textNombre = itemView.findViewById(R.id.nombreAlimento);
         }

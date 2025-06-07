@@ -11,6 +11,9 @@ import Enums.TipoDieta;
 public class Singleton {
     private static Singleton instancia = new Singleton();
 
+    private static final String URL   = "https://tastypoll.web.app";
+
+    private static final String  URLMANUAL = "https://pdfhost.io/v/7dxNcczcB5_Manual_Aplicaci%C3%83%C2%B3n";
     private Usuario usuario = null;
     private FirebaseAuth mAuth;
     private FireBaseManager fireBaseManager;
@@ -42,13 +45,21 @@ public class Singleton {
 
         return instancia;
     }
-
+    public String getUrl(){
+        return URL;
+    }
+    public void limpiarDatos() {
+        this.usuario = null;
+    }
 
     public FirebaseAuth getmAuth(){
         return mAuth;
     }
     public FireBaseManager getFireBaseManager(){
         return fireBaseManager;
+    }
+    public String getUrlManual(){
+        return URLMANUAL;
     }
 
 }
