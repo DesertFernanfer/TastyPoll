@@ -1,36 +1,45 @@
 {
   "project_info": {
-    "project_number": "439663223508",
-    "project_id": "tastypoll",
-    "storage_bucket": "tastypoll.firebasestorage.app"
+    "project_number": "460118049569",
+    "project_id": "tastypoll-8436d",
+    "storage_bucket": "tastypoll-8436d.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:439663223508:android:5cef3cf752b1ecc9fe1141",
+        "mobilesdk_app_id": "1:460118049569:android:e028e5deac6140d1f4f460",
         "android_client_info": {
           "package_name": "com.fernando.tastypoll"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "439663223508-dl503saj8fqrevkpaufhqnnkuu2lu9h3.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAaPlk4B3tFJQve2mIpBv2qPjD37K1NHFE"
+          "current_key": "AIzaSyAebvyR1bNvi0QLEnNcAqydMbg_nlAOkR0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "439663223508-dl503saj8fqrevkpaufhqnnkuu2lu9h3.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460118049569:android:bf0e2867a8381cf3f4f460",
+        "android_client_info": {
+          "package_name": "com.tastypoll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAebvyR1bNvi0QLEnNcAqydMbg_nlAOkR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }
