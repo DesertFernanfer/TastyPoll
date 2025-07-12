@@ -17,7 +17,7 @@ TastyPoll es una solución que permite decidir una comida entre un grupo de pers
 ## 🚀 Tecnologías
 
 - **Frontend Web:** HTML / CSS / Javascript / Firebase Hosting
-- **App Móvil:** Flutter / React Native / Kotlin (según tu stack)
+- **App Móvil:** Java / Android Studio / XML
 - **Backend:** Node.js / Javascript / Firebase Functions
 - **Base de datos:** FireBase Database (NoSql)
 
@@ -25,18 +25,11 @@ TastyPoll es una solución que permite decidir una comida entre un grupo de pers
 
 ## ⚙️ Instalación (Solo disponible en Android)
 
-1. Descarga el APK desde [Releases]().
+1. Descarga el APK desde [Releases](https://github.com/DesertFernanfer/TastyPoll/releases/tag/%23TastyPoll).
 2. Activa "Instalar apps de origen desconocido" en tu móvil.
 3. Abre el archivo `.apk` y confirma la instalación.
 
 
+Las instrucciones de la aplicacion: [Pulse aqui](https://docs.google.com/document/d/1f0FYG43fR_KJ2C4uQTqf_FCofZFqV7_kEkcvXka2aFc/edit?usp=sharing)
 
-
-
-
-
-
-
-
-Preguntar a ChatGPT
 
